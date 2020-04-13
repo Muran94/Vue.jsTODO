@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Vue.js TODO</title>
+</head>
+<body>
+  <div id="app" class="l-wrapper">
+    <header class="l-header">TODO</header>
+    <main class="l-main">
+      <div class="c-panel">
+        <div class="c-panel__section u-flex-align-items-center u-flex-justify-content-between u-font-color-text-gray">
+          <span class="u-flex-align-items-baseline">
+            <span class="u-font-size-extra-small">残タスク: </span><span class="u-font-color-secondary">{{ remaining.length }}</span>、<span class="u-font-size-extra-small">全タスク: </span>{{ todos.length }}
+          </span>
+          <div class="c-button c-button--accent c-button--small" @click="clearCompletedTodos">完了済み削除</div>
+        </div>
+        <div class="c-panel__section u-flex-direction-column">
+          <ul class="p-todos">
+            <li class="p-todos__item" v-for="(todo, index) in todos">
+              <span>
+                <input type="checkbox" v-model="todo.isDone">
+                <span :class="{'p-todos__item--done': todo.isDone}">{{ todo.title }}</span>
+              </span>
+              <a href="#" class="c-link c-link--accent" @click="deleteTodo(index)">削除</a>
+            </li>
+            <li v-show="!todos.length" class="p-todos__item u-font-color-text-gray u-font-size-small">TODOがありません</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="c-panel">
+        <div class="c-panel__section u-flex-direction-column">
+          <div class="u-font-size-small u-font-color-secondary">新規TODO</div>
+          <form class="c-form" @submit.prevent="addTodo">
+            <input type="text" placeholder="TODO名を入力してください" class="c-form__input" v-model="todoForm.title">
+            <button type="submit" class="c-button c-button--primary">追加</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer class="l-footer">All rights reserved to ©︎TODO {{ thisYear }}.</footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

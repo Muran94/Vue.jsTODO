@@ -1,0 +1,183 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box; }
+
+body {
+  background: #F1FCFC;
+  color: #555555;
+  font-family: '遊ゴシック体', Verdana, sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.05rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0; }
+
+.l-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; }
+
+.l-header {
+  background: #FFFFFF;
+  box-shadow: 0 3px 6px rgba(114, 181, 183, 0.1);
+  color: #72B5B7;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-family: 'Avenir Next';
+  font-size: 24px;
+  height: 70px;
+  width: 100%; }
+
+.l-main {
+  flex: 1; }
+
+.l-footer {
+  background: #555555;
+  color: #999999;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-family: 'Avenir Next';
+  font-size: 13px;
+  margin-top: auto;
+  padding: 10px 0; }
+
+.c-button {
+  border: none;
+  border-radius: 3px;
+  background: #CCCCCC;
+  color: #555555;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 36px;
+  width: 75px; }
+  .c-button:hover {
+    opacity: 0.85; }
+  .c-button--small {
+    font-size: 10px;
+    height: 24px; }
+  .c-button--accent {
+    background: #FF8066;
+    color: #FFFFFF; }
+  .c-button--primary {
+    background: #40E0D0;
+    color: #FFFFFF; }
+
+.c-form {
+  align-items: center;
+  display: flex;
+  margin-top: 5px; }
+  .c-form__input {
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    flex: 1;
+    height: 36px;
+    margin-right: 5px;
+    padding: 0 10px; }
+    .c-form__input::placeholder {
+      color: #CCCCCC; }
+
+.c-link {
+  color: #40E0D0;
+  font-size: 13px; }
+  .c-link--primary {
+    color: #40E0D0; }
+  .c-link--secondary {
+    color: #72B5B7; }
+  .c-link--dark-primary {
+    color: #633A82; }
+  .c-link--body {
+    color: #F1FCFC; }
+  .c-link--accent {
+    color: #FF8066; }
+  .c-link--text-black {
+    color: #555555; }
+  .c-link--text-gray {
+    color: #999999; }
+  .c-link--text-light-gray {
+    color: #CCCCCC; }
+  .c-link--white {
+    color: #FFFFFF; }
+  .c-link--black {
+    color: #000000; }
+
+.c-panel {
+  border-radius: 5px;
+  background: #FFFFFF;
+  box-shadow: 0 3px 6px rgba(114, 181, 183, 0.1);
+  width: 400px;
+  margin: 15px auto 0 auto; }
+  .c-panel__section + .c-panel__section {
+    border-top: 1px solid #F1FCFC; }
+  .c-panel__section {
+    display: flex;
+    padding: 15px; }
+
+.p-todos {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+  .p-todos__item {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px; }
+    .p-todos__item--done {
+      color: #999999;
+      text-decoration: line-through; }
+    .p-todos__item:nth-child(even) {
+      background: #F1FCFC; }
+
+.u-font-color-primary {
+  color: #40E0D0; }
+.u-font-color-secondary {
+  color: #72B5B7; }
+.u-font-color-dark-primary {
+  color: #633A82; }
+.u-font-color-body {
+  color: #F1FCFC; }
+.u-font-color-accent {
+  color: #FF8066; }
+.u-font-color-text-black {
+  color: #555555; }
+.u-font-color-text-gray {
+  color: #999999; }
+.u-font-color-text-light-gray {
+  color: #CCCCCC; }
+.u-font-color-white {
+  color: #FFFFFF; }
+.u-font-color-black {
+  color: #000000; }
+
+.u-font-size-extra-large {
+  font-size: 24px; }
+.u-font-size-large {
+  font-size: 20px; }
+.u-font-size-medium {
+  font-size: 15px; }
+.u-font-size-small {
+  font-size: 13px; }
+.u-font-size-extra-small {
+  font-size: 10px; }
+
+.u-flex-align-items-baseline {
+  align-items: baseline; }
+.u-flex-align-items-center {
+  align-items: center; }
+
+.u-flex-justify-content-end {
+  justify-content: flex-end; }
+.u-flex-justify-content-between {
+  justify-content: space-between; }
+
+.u-flex-direction-column {
+  flex-direction: column; }
+
+/*# sourceMappingURL=styles.css.map */

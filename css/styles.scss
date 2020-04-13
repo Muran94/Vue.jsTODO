@@ -1,0 +1,293 @@
+// Flocss
+// Foundation
+$colors: (
+  primary: #40E0D0,
+  secondary: #72B5B7,
+  dark-primary: #633A82,
+  body: #F1FCFC,
+  accent: #FF8066,
+  text-black: #555555,
+  text-gray: #999999,
+  text-light-gray: #CCCCCC,
+  white: #FFFFFF,
+  black: #000000,
+);
+
+@function color($name) {
+  @if map-has-key($colors, $name) {
+    @return map-get($colors, $name);
+  } @else {
+    @error "指定された色は定義されていません。#{$name}";
+  }
+}
+
+$font-sizes: (
+  extra-large: 24px,
+  large:  20px,
+  medium:  15px,
+  small:  13px,
+  extra-small: 10px,
+);
+
+@function font-size($size: medium) {
+  @if map-has-key($font-sizes, $size) {
+    @return map-get($font-sizes, $size);
+  } @else {
+    @error "指定された文字サイズは定義されていません。#{$size}";
+  }
+}
+
+* {
+  // Sizing
+  box-sizing: border-box;
+}
+
+body {
+  // Color
+  background: color(body);
+  color: color(text-black);
+
+  // Font & Text
+  font-family: '遊ゴシック体', Verdana, sans-serif;
+  font-size: font-size();
+  letter-spacing: 0.05rem;
+  line-height: 1.5;
+
+  // Spacing
+  margin: 0;
+  padding: 0;
+}
+
+// Layout
+.l-wrapper {
+  // Flexbox
+  display: flex;
+  flex-direction: column;
+
+  // Sizing
+  height: 100vh;
+}
+.l-header {
+  // Color
+  background: color(white);
+  box-shadow: 0 3px 6px rgba(color(secondary), 0.1);
+  color: color(secondary);
+
+  // Flexbox
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  // Font & Text
+  font-family: 'Avenir Next';
+  font-size: font-size(extra-large);
+
+  // Sizing
+  height: 70px;
+  width: 100%;
+}
+.l-main {
+  // Flexbox
+  flex: 1;
+}
+.l-footer {
+  // Color
+  background: color(text-black);
+  color: color(text-gray);
+
+  // Flexbox
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  // Font & Text
+  font-family: 'Avenir Next';
+  font-size: font-size(small);
+
+  // Spacing
+  margin-top: auto;
+  padding: 10px 0;
+}
+
+// Object - Component
+.c-button {
+  // Border
+  border: none;
+  border-radius: 3px;
+
+  // Color
+  background: color(text-light-gray);
+  color: color(text-black);
+  text-shadow: 0 1px 1px rgba(color(white), 0.1);
+
+  // Cursor
+  cursor: pointer;
+
+  // Flexbox
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  // Sizing
+  height: 36px;
+  width: 75px;
+
+  &:hover {
+    // Color
+    opacity: 0.85;
+  }
+
+  &--small {
+    // Font & Text
+    font-size: font-size(extra-small);
+
+    // Sizing
+    height: 24px;
+  }
+
+  &--accent {
+    // Color
+    background: color(accent);
+    color: color(white);
+  }
+  &--primary {
+    // Color
+    background: color(primary);
+    color: color(white);
+  }
+}
+
+.c-form {
+  // Flexbox
+  align-items: center;
+  display: flex;
+
+  // Spacing
+  margin-top: 5px;
+
+  &__input {
+    // Border
+    border: 1px solid color(text-light-gray);
+    border-radius: 3px;
+
+    // Flexbox
+    flex: 1;
+
+    // Sizing
+    height: 36px;
+
+    // Spacing
+    margin-right: 5px;
+    padding: 0 10px;
+
+    &::placeholder {
+      // Color
+      color: color(text-light-gray);
+    }
+  }
+}
+
+.c-link {
+  // Color
+  color: color(primary);
+
+  // Font & Text
+  font-size: font-size(small);
+
+  @each $color-name, $color-value in $colors {
+    &--#{$color-name} {
+      color: $color-value;
+    }
+  }
+}
+
+.c-panel {
+  // Border
+  border-radius: 5px;
+
+  // Color
+  background: color(white);
+  box-shadow: 0 3px 6px rgba(color(secondary), 0.1);
+
+  // Sizing
+  width: 400px;
+
+  // Spacing
+  margin: 15px auto 0 auto;
+
+  &__section + &__section {
+    // Border
+    border-top: 1px solid color(body);
+  }
+
+  &__section {
+    // Flexbox
+    display: flex;
+
+    // Spacing
+    padding: 15px;
+  }
+}
+
+// Object - Project
+.p-todos {
+  // Flexbox
+  display: flex;
+  flex-direction: column;
+
+  // List
+  list-style: none;
+
+  // Spacing
+  margin: 0;
+  padding: 0;
+
+  // Sizing
+  width: 100%;
+
+  &__item {
+    // Flexbox
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    // Spacing
+    padding: 5px 10px;
+
+    &--done {
+      // Color
+      color: color(text-gray);
+
+      // Font & Text
+      text-decoration: line-through;
+    }
+
+    &:nth-child(even) {
+      // Color
+      background: color(body);
+    }
+  }
+}
+
+// Object - Utility
+.u-font-color {
+  @each $color-name, $color-value in $colors {
+    &-#{$color-name} { color: $color-value };
+  }
+}
+.u-font-size {
+  @each $font-size-name, $font-size-value in $font-sizes {
+    &-#{$font-size-name} { font-size: $font-size-value; }
+  }
+}
+.u-flex-align-items {
+  &-baseline { align-items: baseline; }
+  &-center { align-items: center; }
+}
+.u-flex-justify-content {
+  &-end { justify-content: flex-end; }
+  &-between { justify-content: space-between; }
+}
+.u-flex-direction {
+  &-column { flex-direction: column; }
+}
